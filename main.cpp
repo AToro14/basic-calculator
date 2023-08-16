@@ -24,6 +24,8 @@ int subtract(int arg1, int arg2);
 int multiply(int arg1, int arg2);
 double divide(int arg1, int arg2);
 int exponential(int arg1, int arg2);
+int nthRoot(int art1, int arg2);
+
 void newLine(int num1);
 
 // 3. get input from user
@@ -50,6 +52,8 @@ int main() {
     cout << "Your number divided: " << setprecision(6) << divide(num1, num2);
     newLine(1);
     cout << "Your number exponentiated: " << exponential(num1, num2);
+    newLine(1);
+    cout << "The nth root of your number: " << nthRoot(num1, num2);
     newLine(1);
 
     return 0;
@@ -96,6 +100,15 @@ int exponential(int arg1, int arg2) {
     ans = temp; 
 
     return ans;
+}
+
+int nthRoot(int art1, int arg2) {
+
+    newLine(1);
+    cout << "Used nthRoot() Function";
+    newLine(1);
+
+    return 0;
 }
 
 void newLine(int num1) {
