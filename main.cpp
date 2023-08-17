@@ -13,20 +13,12 @@
 #include<stdio.h>
 #include<cmath>
 #include<iomanip>
+#include "functions.h"
 using namespace std;
 
-// 2. define variables and function prototypes
+// 2. define variables
 double num1, num2;
 double ans;
-
-double add(double arg1, double arg2);
-double subtract(double arg1, double arg2);
-double multiply(double arg1, double arg2);
-double divide(double arg1, double arg2);
-double exponential(double arg1, double arg2);
-double nthRoot(double art1, double arg2);
-
-void newLine(int num1);
 
 // 3. get input from user
 int main() {
@@ -88,13 +80,13 @@ double divide(double arg1, double arg2) {
     return ans;
 }
 
-double exponential(double arg1, double arg2) {
+double exponential(double base, double power) {
     
-    double temp = arg1;
+    double temp = base;
     
-    for ( int i = 0; i < (arg2 - 1 ); i++) {
+    for ( int i = 0; i < (power- 1 ); i++) {
         
-        temp = multiply(temp, arg1);      
+        temp = multiply(temp, base);      
 
     }
     ans = temp; 
@@ -102,11 +94,11 @@ double exponential(double arg1, double arg2) {
     return ans;
 }
 
-double nthRoot(double arg1, double arg2) {
+double nthRoot(double base, double root) {
     
-    ans = pow(arg1, 1 / arg2);
+    ans = pow(base, 1 / root);
     newLine(1);
-    cout << "The " << arg2 << "th root of " << arg1 << " is: ";
+    cout << "The " << root << "th root of " << base << " is: ";
 
     return ans;
 }
