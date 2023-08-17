@@ -2,7 +2,7 @@
 //
 // Date Started: 08/08/2023
 //
-// Last Edited: 08/09/2023
+// Last Edited: 08/16/2023
 //
 // Purpose: First project in Neovim, making a basic calculator
 
@@ -16,15 +16,15 @@
 using namespace std;
 
 // 2. define variables and function prototypes
-int num1, num2;
+double num1, num2;
 double ans;
 
-int add(int arg1, int arg2);
-int subtract(int arg1, int arg2);
-int multiply(int arg1, int arg2);
-double divide(int arg1, int arg2);
-int exponential(int arg1, int arg2);
-int nthRoot(int art1, int arg2);
+double add(double arg1, double arg2);
+double subtract(double arg1, double arg2);
+double multiply(double arg1, double arg2);
+double divide(double arg1, double arg2);
+double exponential(double arg1, double arg2);
+double nthRoot(double art1, double arg2);
 
 void newLine(int num1);
 
@@ -60,37 +60,37 @@ int main() {
 }
 
 // 4. functions for calculator
-int add(int arg1, int arg2) {
+double add(double arg1, double arg2) {
     
     ans = arg1 + arg2; 
 
     return ans;
 }
 
-int multiply(int arg1, int arg2) {
+double multiply(double arg1, double arg2) {
 
     ans = arg1 * arg2;
 
     return ans;
 }
 
-int subtract(int arg1, int arg2) {
+double subtract(double arg1, double arg2) {
 
     ans = num1 - num2;
 
     return ans;
 }
 
-double divide(int arg1, int arg2) {
+double divide(double arg1, double arg2) {
 
-    ans =  ( (double) num1 / (double) num2 );
+    ans =  ( num1 /  num2 );
     
     return ans;
 }
 
-int exponential(int arg1, int arg2) {
+double exponential(double arg1, double arg2) {
     
-    int temp = arg1;
+    double temp = arg1;
     
     for ( int i = 0; i < (arg2 - 1 ); i++) {
         
@@ -102,13 +102,13 @@ int exponential(int arg1, int arg2) {
     return ans;
 }
 
-int nthRoot(int art1, int arg2) {
-
+double nthRoot(double arg1, double arg2) {
+    
+    ans = pow(arg1, 1 / arg2);
     newLine(1);
-    cout << "Used nthRoot() Function";
-    newLine(1);
+    cout << "The " << arg2 << "th root of " << arg1 << " is: ";
 
-    return 0;
+    return ans;
 }
 
 void newLine(int num1) {
