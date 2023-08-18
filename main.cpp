@@ -45,9 +45,7 @@ int main() {
     newLine(1);
     cout << "Your number exponentiated: " << exponential(num1, num2);
     newLine(1);
-    cout << "The nth root of your number: " << nthRoot(num1, num2);
-    newLine(1);
-
+    cout << "The tetration is: " << tetrate(num1, num2);
     return 0;
 }
 
@@ -101,6 +99,23 @@ double nthRoot(double base, double root) {
     cout << "The " << root << "th root of " << base << " is: ";
 
     return ans;
+}
+
+double tetrate(double base, double height) {
+    
+    // evaluate from right to left
+    // example
+    // 2^^4 = 2^(2^(2^2))
+    // use loops
+    double temp = base;
+
+    for (int i = 0; i < height - 1; i++) {
+        
+        temp = exponential(base, temp);
+        
+    }
+
+    return ans = temp;
 }
 
 void newLine(int num1) {

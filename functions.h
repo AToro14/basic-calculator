@@ -11,6 +11,7 @@ double multiply(double arg1, double arg2);
 double divide(double arg1, double arg2);
 double exponential(double base, double power);
 double nthRoot(double base, double root);
+double tetrate(double base, double height);
 
 void newLine(int num1);
 
