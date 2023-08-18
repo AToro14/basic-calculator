@@ -19,6 +19,7 @@ using namespace std;
 // 2. define variables
 double num1, num2;
 double ans;
+char operation;
 
 // 3. get input from user
 int main() {
@@ -28,13 +29,15 @@ int main() {
     cout << "Enter a number: ";
     cin >> num1;
     // cout << "\nThe number is: " << num1;
-    
-    newLine(1);
+   
+    // 3.a ask user which operation to use
+    newCalc(); 
     cout << "\nEnter another number: ";
     cin >> num2;
     // cout << "\nThe number is: \n" << num2;
+    chooseOp(operation);
     
-    newLine(1);
+    newLine(2);
     cout << "Your numbers added: " << add(num1, num2);
     newLine(1);
     cout << "Your numbers multiplied: " << multiply(num1, num2);
@@ -45,7 +48,7 @@ int main() {
     newLine(1);
     cout << "Your number exponentiated: " << exponential(num1, num2);
     newLine(1);
-    cout << "The tetration is: " << tetrate(num1, num2);
+    // cout << "The tetration is: " << tetrate(num1, num2);
     return 0;
 }
 
@@ -137,4 +140,75 @@ void newLine(int num1) {
     
     return;
 }
+
+void chooseOp(char operation) {
+    
+    switch (operation) {
+        
+        case '+':
+            // cout << "You selected addition.";
+            newLine(1);
+            cout << "Answer: " << add(num1, num2);
+            break;
+        
+        case '-':
+            // cout << "You selected subtraction.";
+            newLine(1);
+            cout << "Answer: " << subtract(num1, num2);
+            break;
+        
+        case '*':
+            // cout << "You selected multiplication.";
+            newLine(1);
+            cout << "Answer: " << multiply(num1, num2);
+            break;
+       
+        case '/':
+            // cout << "You selected division.";
+            newLine(1);
+            cout << "Answer: " << divide(num1, num2);
+            break;
+       
+        case '^':
+            // cout << "You selected exponentiation.";
+            newLine(1);
+            cout << "Answer: " << exponential(num1, num2);
+            break;
+       
+        case 'n':
+            // cout << "You selected nth root.";
+            newLine(1);
+            cout << "Answer: " << nthRoot(num1, num2);
+            break;
+       
+        default:
+            cout << "Invalid Choice";
+            break;
+    }
+
+    return;
+}
+
+void newCalc() {
+    
+    cout << "Choose an Operation:"; 
+    newLine(1);
+    cout << " [+] - Addition";
+    newLine(1);
+    cout << " [-] - Subtraction";
+    newLine(1);
+    cout << " [*] - Multiplication";
+    newLine(1);
+    cout << " [/] - Division";
+    newLine(1);
+    cout << " [^] - Exponentiation";
+    newLine(1);
+    cout << " [n] - nth Root";
+    newLine(1);
+    cin >> operation;
+    cout << "\nOperation chosen is: " << operation;
+
+    return;
+}
+
 // 5. output from calculator

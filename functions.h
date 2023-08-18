@@ -14,5 +14,7 @@ double nthRoot(double base, double root);
 double tetrate(double base, double height);
 
 void newLine(int num1);
+void chooseOp(char operation);
+void newCalc();
 
 #endif
