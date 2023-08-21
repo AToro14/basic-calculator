@@ -14,40 +14,55 @@
 #include<cmath>
 #include<iomanip>
 #include "functions.h"
+#include<cstdlib> 
 using namespace std;
 
 // 2. define variables
 double num1, num2;
 double ans;
 char operation;
+char arrow[8] = {' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
 // 3. get input from user
 int main() {
     
+    system("cls");
     cout << "Enter a number: ";
     cin >> num1;
+    newLine(1);
     // cout << "\nThe number is: " << num1;
-   
+    
+    /* TODO: Check if input is valid
+    *
+    */
+
     // 3.a ask user which operation to use
-    newCalc(); 
+    printMenu(); 
+    cin >> operation;
+    menuChooseOp(operation);
+    printMenu();
+    // cout << operation << "";
     cout << "\nEnter another number: ";
     cin >> num2;
     // cout << "\nThe number is: \n" << num2;
     chooseOp(operation);
     
     newLine(2);
-    cout << "Your numbers added: " << add(num1, num2);
+    cout << num1 << " + " << num2 << " = " << add(num1, num2);
     newLine(1);
-    cout << "Your numbers multiplied: " << multiply(num1, num2);
+    cout << num1 << " - " << num2 << " = " << subtract(num1, num2);
     newLine(1);
-    cout << "Your numbers subtracted: " << subtract(num1, num2);
+    cout << num1 << " * " << num2 << " = " << multiply(num1, num2);
     newLine(1);
-    cout << "Your number divided: " << setprecision(6) << divide(num1, num2);
+    cout << num1 << " / " << num2 << " = " << setprecision(6) << divide(num1, num2);
     newLine(1);
-    cout << "Your number exponentiated: " << exponential(num1, num2);
+    cout << num1 << " ^ " << num2 << " = " << exponential(num1, num2);
     newLine(1);
+    cout << num1 << " ^(1/ " << num2 << ") = " << nthRoot(num1, num2); 
+    newLine(1);
+    cout << num2 << "!" << " = " << factorial(num2); 
     // cout << "The tetration is: " << tetrate(num1, num2);
-    cout << "Factorial of 2nd number: " << factorial(num2);
+    newLine(1);
     return 0;
 }
 
@@ -96,7 +111,6 @@ double exponential(double base, double power) {
 double nthRoot(double base, double root) {
     
     ans = pow(base, 1 / root);
-    newLine(1);
     cout << "The " << root << "th root of " << base << " is: ";
 
     return ans;
@@ -163,6 +177,45 @@ void newLine(int num1) {
     return;
 }
 
+void menuChooseOp(char operation) {
+    
+    switch (operation) {
+        
+        case '+':
+            arrow[0] = '>';
+            break;
+        
+        case '-':
+            arrow[1] = '>';
+            break;
+        
+        case '*':
+            arrow[2] = '>';
+            break;
+       
+        case '/':
+            arrow[3] = '>';
+            break;
+       
+        case '^':
+            arrow[4] = '>';
+            break;
+       
+        case 'n':
+            arrow[5] = '>';
+            break;
+       
+        case '!':
+            arrow[6] = '>';
+            break;
+        
+        default:
+            break;
+    }
+
+    return;
+}
+
 void chooseOp(char operation) {
     
     switch (operation) {
@@ -186,8 +239,6 @@ void chooseOp(char operation) {
             break;
        
         case '/':
-            // cout << "You selected division.";
-            newLine(1);
             cout << "Answer: " << divide(num1, num2);
             break;
        
@@ -217,26 +268,27 @@ void chooseOp(char operation) {
     return;
 }
 
-void newCalc() {
+void printMenu() {
     
+    system("cls");
+    cout << "Enter a number: " << num1;
+    newLine(2);
     cout << "Choose an Operation:"; 
     newLine(1);
-    cout << " [+] - Addition";
+    cout << arrow[0] << "[+] - Addition";
     newLine(1);
-    cout << " [-] - Subtraction";
+    cout << arrow[1] << "[-] - Subtraction";
     newLine(1);
-    cout << " [*] - Multiplication";
+    cout << arrow[2] << "[*] - Multiplication";
     newLine(1);
-    cout << " [/] - Division";
+    cout << arrow[3] << "[/] - Division";
     newLine(1);
-    cout << " [^] - Exponentiation";
+    cout << arrow[4] << "[^] - Exponentiation";
     newLine(1);
-    cout << " [n] - nth Root";
+    cout << arrow[5] << "[n] - nth Root";
     newLine(1);
-    cout << " [!] - Factorial"; 
+    cout << arrow[6] << "[!] - Factorial"; 
     newLine(1);
-    cin >> operation;
-    cout << "\nOperation chosen is: " << operation;
 
     return;
 }
