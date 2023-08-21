@@ -15,7 +15,8 @@ double factorial(int arg1);
 double tetrate(double base, double height);
 
 void newLine(int num1);
+void menuChooseOp(char operation);
 void chooseOp(char operation);
-void newCalc();
+void printMenu();
 
 #endif
