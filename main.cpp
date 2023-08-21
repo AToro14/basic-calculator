@@ -2,7 +2,7 @@
 //
 // Date Started: 08/08/2023
 //
-// Last Edited: 08/16/2023
+// Last Edited: 08/20/2023
 //
 // Purpose: First project in Neovim, making a basic calculator
 
@@ -24,8 +24,6 @@ char operation;
 // 3. get input from user
 int main() {
     
-    cout << "Hello World!\nLine 2";
-    newLine(2);
     cout << "Enter a number: ";
     cin >> num1;
     // cout << "\nThe number is: " << num1;
@@ -49,6 +47,7 @@ int main() {
     cout << "Your number exponentiated: " << exponential(num1, num2);
     newLine(1);
     // cout << "The tetration is: " << tetrate(num1, num2);
+    cout << "Factorial of 2nd number: " << factorial(num2);
     return 0;
 }
 
@@ -76,7 +75,7 @@ double subtract(double arg1, double arg2) {
 
 double divide(double arg1, double arg2) {
 
-    ans =  ( num1 /  num2 );
+    ans = ( num1 / num2 );
     
     return ans;
 }
@@ -85,14 +84,13 @@ double exponential(double base, double power) {
     
     double temp = base;
     
-    for ( int i = 0; i < (power- 1 ); i++) {
+    for ( int i = 0; i < (power - 1 ); i++ ) {
         
         temp = multiply(temp, base);      
 
     }
-    ans = temp; 
-
-    return ans;
+    
+    return temp;
 }
 
 double nthRoot(double base, double root) {
@@ -103,6 +101,33 @@ double nthRoot(double base, double root) {
 
     return ans;
 }
+
+double factorial(int arg1) {
+
+    double temp = arg1; 
+    
+    if (arg1 > 1) {
+        
+        for (int i = 1; i < arg1; i++) {
+            
+            temp = multiply(temp, i);
+        }
+    }
+
+    else if (arg1 > -1) {
+        
+        return 1;
+    }
+
+    else {
+    
+        newLine(1);
+        cout << "Invalid input: ";
+    }
+
+    return temp;
+}
+
 
 double tetrate(double base, double height) {
     
@@ -115,7 +140,6 @@ double tetrate(double base, double height) {
     for (int i = 0; i < height - 1; i++) {
         
         temp = exponential(base, temp);
-        
     }
 
     return ans = temp;
@@ -128,14 +152,12 @@ void newLine(int num1) {
         for (int i = 0; i < num1; i++) {
             
             newLine(1);
-        
         }
     }
     
     else {
 
     cout << "\n";
-
     }
     
     return;
@@ -181,6 +203,12 @@ void chooseOp(char operation) {
             cout << "Answer: " << nthRoot(num1, num2);
             break;
        
+        case '!':
+            // cout << "You selected factorial."; 
+            newLine(1);
+            cout << "Answer: " << factorial(num2); 
+            break;
+        
         default:
             cout << "Invalid Choice";
             break;
@@ -204,6 +232,8 @@ void newCalc() {
     cout << " [^] - Exponentiation";
     newLine(1);
     cout << " [n] - nth Root";
+    newLine(1);
+    cout << " [!] - Factorial"; 
     newLine(1);
     cin >> operation;
     cout << "\nOperation chosen is: " << operation;
